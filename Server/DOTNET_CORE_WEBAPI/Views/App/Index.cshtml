@@ -1,0 +1,45 @@
+﻿@model IEnumerable<City>
+
+<div class="col-md-10">
+
+    @foreach (var city in Model)
+    {
+    <article class="tour">
+        <h3>@city.Name</h3>
+        <div class="img-container">
+            <img src=@city.ImagePath width="80%" />
+        </div>
+        <div class="tour-info">
+            <h5>
+                info
+                <span>
+                    <i class="fa fa-caret-square-down"></i>
+                </span>
+            </h5>
+            <p>@city.Description</p>
+        </div>
+        <div>
+            @foreach (var po in city.PointsOfInterest)
+            {
+                <span><b>@po.Name</b></span><br />
+                <span>@po.Description</span><br />
+            }
+            <br />
+        </div>
+    </article>
+    }
+</div>
+@section scripts{
+
+    <script>
+        // for test
+        //$.ajax({
+        //    url: "http://localhost:1562/api/cities/",
+        //    success: function (result) {
+        //        console.log(result);
+        //    }
+        //})
+    </script>
+
+
+}
